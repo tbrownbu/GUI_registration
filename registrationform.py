@@ -1,18 +1,3 @@
-#include frames, labels, input box, 
-# buttons, radio buttons, check boxes
-#email, password, re-type password
-#first name    last name
-#male   female
-#I agree w terms and conditinos
-#i want to receive the newsletter 
-#register button
-
-#user clicks on register button, program 
-#validates user input to make sure 
-#gender is selected, both checkboxes are checked
-#password and re-type password input match up
-#password should be maksked(***)
-
 import tkinter as t 
 import tkinter.messagebox
 
@@ -103,9 +88,11 @@ class registrationbox:
 
         if self.password_entry.get() != self.password2_entry.get():
             tkinter.messagebox.showinfo('Passwords must match')
-        elif self.radio_var.get()== 0:
-            tkinter.messagebox.showinfo('Missing Info','Please select a gender')
         elif self.cb_terms.get() and self.cb_newsletter.get() == 0:
             tkinter.messagebox.showinfo('Missing Info','Please check both checkboxes')
+        elif self.radio_var.get()== 0:
+            tkinter.messagebox.showinfo('Missing Info','Please select a gender')
+        else:
+            tkinter.messagebox.showinfo('Submission','You have successfuly submitted your info')
 
 myinstance = registrationbox()
