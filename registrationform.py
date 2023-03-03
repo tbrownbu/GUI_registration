@@ -45,7 +45,7 @@ class registrationbox:
         self.cb2=t.Checkbutton(self.newsletter_frame,text='I want to receive the newsletter',variable=self.cb_newsletter)
 
         self.register_button_frame = t.Frame(self.main_window)
-        self.registerbutton = t.Button(self.register_button_frame,text='Register',command=self.validate())
+        self.registerbutton = t.Button(self.register_button_frame,text='Register',command=self.validate)
         
         #pack
         self.top_frame.pack()
@@ -87,10 +87,10 @@ class registrationbox:
     def validate(self):
 
         if self.password_entry.get() != self.password2_entry.get():
-            tkinter.messagebox.showinfo('Passwords must match')
-        elif self.cb_terms.get() and self.cb_newsletter.get() == 0:
+            tkinter.messagebox.showerror('Passwords must match')
+        elif self.cb_terms.get() == 0 or self.cb_newsletter.get() == 0:
             tkinter.messagebox.showinfo('Missing Info','Please check both checkboxes')
-        elif self.radio_var.get()== 0:
+        elif self.radio_var.get() == t.IntVar(value=0):
             tkinter.messagebox.showinfo('Missing Info','Please select a gender')
         else:
             tkinter.messagebox.showinfo('Submission','You have successfuly submitted your info')
